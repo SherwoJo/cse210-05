@@ -6,4 +6,8 @@
     <RootNamespace>cse210_05</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="raylib-cs" Version="3.7.0.1" />
+  </ItemGroup>
+
 </Project>
