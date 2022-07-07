@@ -7,9 +7,10 @@ namespace cse210_05.Game.Casting
     public class Cycle : Actor
     {
         private List<Actor> segments = new List<Actor>();
+        public int Player { get; set; }
 
         /// <summary>
-        /// Constructs a new instance of a Snake.
+        /// Constructs a new instance of a Cycle.
         /// </summary>
         public Cycle()
         {
@@ -17,7 +18,7 @@ namespace cse210_05.Game.Casting
         }
 
         /// <summary>
-        /// Gets the snake's body segments.
+        /// Gets the cycle's trail segments.
         /// </summary>
         /// <returns>The body segments in a List.</returns>
         public List<Actor> GetBody()
@@ -26,7 +27,7 @@ namespace cse210_05.Game.Casting
         }
 
         /// <summary>
-        /// Gets the snake's head segment.
+        /// Gets the cycle's head segment.
         /// </summary>
         /// <returns>The head segment as an instance of Actor.</returns>
         public Actor GetHead()
@@ -35,16 +36,16 @@ namespace cse210_05.Game.Casting
         }
 
         /// <summary>
-        /// Gets the snake's segments (including the head).
+        /// Gets the cycle's segments (including the head).
         /// </summary>
-        /// <returns>A list of snake segments as instances of Actors.</returns>
+        /// <returns>A list of cycle segments as instances of Actors.</returns>
         public List<Actor> GetSegments()
         {
             return segments;
         }
 
         /// <summary>
-        /// Grows the snake's tail by the given number of segments.
+        /// Grows the cycle's tail by the given number of segments.
         /// </summary>
         /// <param name="numberOfSegments">The number of segments to grow.</param>
         public void GrowTail(int numberOfSegments)
@@ -83,7 +84,7 @@ namespace cse210_05.Game.Casting
         }
 
         /// <summary>
-        /// Turns the head of the snake in the given direction.
+        /// Turns the head of the cycle in the given direction.
         /// </summary>
         /// <param name="velocity">The given direction.</param>
         public void TurnHead(Point direction)
@@ -92,17 +93,17 @@ namespace cse210_05.Game.Casting
         }
 
         /// <summary>
-        /// Prepares the snake body for moving.
+        /// Prepares the cycle for moving.
         /// </summary>
         private void PrepareBody()
         {
             int x = Constants.MAX_X / 2;
             int y = Constants.MAX_Y / 2;
 
-            for (int i = 0; i < Constants.SNAKE_LENGTH; i++)
+            for (int i = 0; i < Constants.CYCLE_LENGTH; i++)
             {
-                Point position = new Point(x - i * Constants.CELL_SIZE, y);
-                Point velocity = new Point(1 * Constants.CELL_SIZE, 0);
+                Point position = new Point(x, y + i * Constants.CELL_SIZE);
+                Point velocity = new Point(0, -1 * Constants.CELL_SIZE);
                 string text = i == 0 ? "8" : "#";
                 Color color = i == 0 ? Constants.YELLOW : Constants.GREEN;
 
