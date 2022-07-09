@@ -12,7 +12,8 @@ namespace cse210_05
         {
             // create the cast
             Cast cast = new Cast();
-            cast.AddActor("cycle", new Cycle());
+            cast.AddActor("cycle_1", new Cycle(1));
+            cast.AddActor("cycle_2", new Cycle(2));
             cast.AddActor("score", new Score());
 
             // create the services

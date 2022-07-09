@@ -21,5 +21,7 @@ namespace cse210_05
         public static Color WHITE = new Color(255, 255, 255);
         public static Color YELLOW = new Color(255, 255, 0);
         public static Color GREEN = new Color(0, 255, 0);
+        public static Color BLUE = new Color(0, 0, 255);
+        public static Color PURPLE = new Color(255, 0, 255);
     }
 }

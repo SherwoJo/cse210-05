@@ -33,13 +33,24 @@ namespace cse210_05.Game.Scripting
         /// <param name="cast">The cast of actors.</param>
         private void HandleSegmentCollisions(Cast cast)
         {
-            Cycle cycle = (Cycle)cast.GetFirstActor("cycle");
-            Actor head = cycle.GetHead();
-            List<Actor> body = cycle.GetBody();
+            Cycle cycle_1 = (Cycle)cast.GetFirstActor("cycle_1");
+            Cycle cycle_2 = (Cycle)cast.GetFirstActor("cycle_2");
+            Actor head_1 = cycle_1.GetHead();
+            Actor head_2 = cycle_2.GetHead();
+            List<Actor> body_1 = cycle_1.GetBody();
+            List<Actor> body_2 = cycle_2.GetBody();
 
-            foreach (Actor segment in body)
+            foreach (Actor segment in body_1)
             {
-                if (segment.GetPosition().Equals(head.GetPosition()))
+                if (segment.GetPosition().Equals(head_2.GetPosition()))
+                {
+                    isGameOver = true;
+                }
+            }
+
+            foreach (Actor segment in body_2)
+            {
+                if (segment.GetPosition().Equals(head_1.GetPosition()))
                 {
                     isGameOver = true;
                 }

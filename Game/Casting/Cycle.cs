@@ -12,8 +12,9 @@ namespace cse210_05.Game.Casting
         /// <summary>
         /// Constructs a new instance of a Cycle.
         /// </summary>
-        public Cycle()
+        public Cycle(int PlayerNumber)
         {
+            Player = PlayerNumber;
             PrepareBody();
         }
 
@@ -97,22 +98,44 @@ namespace cse210_05.Game.Casting
         /// </summary>
         private void PrepareBody()
         {
-            int x = Constants.MAX_X / 2;
-            int y = Constants.MAX_Y / 2;
-
-            for (int i = 0; i < Constants.CYCLE_LENGTH; i++)
+            if (Player == 1)
             {
-                Point position = new Point(x, y + i * Constants.CELL_SIZE);
-                Point velocity = new Point(0, -1 * Constants.CELL_SIZE);
-                string text = i == 0 ? "8" : "#";
-                Color color = i == 0 ? Constants.YELLOW : Constants.GREEN;
+                int x = Constants.MAX_X / 4;
+                int y = Constants.MAX_Y / 2;
 
-                Actor segment = new Actor();
-                segment.SetPosition(position);
-                segment.SetVelocity(velocity);
-                segment.SetText(text);
-                segment.SetColor(color);
-                segments.Add(segment);
+                for (int i = 0; i < Constants.CYCLE_LENGTH; i++)
+                {
+                    Point position = new Point(x, y + i * Constants.CELL_SIZE);
+                    Point velocity = new Point(0, -1 * Constants.CELL_SIZE);
+                    string text = i == 0 ? "8" : "#";
+                    Color color = i == 0 ? Constants.YELLOW : Constants.GREEN;
+                    Actor segment = new Actor();
+                    segment.SetPosition(position);
+                    segment.SetVelocity(velocity);
+                    segment.SetText(text);
+                    segment.SetColor(color);
+                    segments.Add(segment);
+                }
+            }
+
+            else if (Player == 2)
+            {
+                int x = 3 * (Constants.MAX_X / 4);
+                int y = Constants.MAX_Y / 2;
+
+                for (int i = 0; i < Constants.CYCLE_LENGTH; i++)
+                {
+                    Point position = new Point(x, y + i * Constants.CELL_SIZE);
+                    Point velocity = new Point(0, -1 * Constants.CELL_SIZE);
+                    string text = i == 0 ? "8" : "#";
+                    Color color = i == 0 ? Constants.PURPLE : Constants.BLUE;
+                    Actor segment = new Actor();
+                    segment.SetPosition(position);
+                    segment.SetVelocity(velocity);
+                    segment.SetText(text);
+                    segment.SetColor(color);
+                    segments.Add(segment);
+                }
             }
         }
     }

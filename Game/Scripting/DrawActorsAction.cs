@@ -20,13 +20,16 @@ namespace cse210_05.Game.Scripting
         /// <inheritdoc/>
         public override void Execute(Cast cast, Script script)
         {
-            Cycle cycle = (Cycle)cast.GetFirstActor("cycle");
-            List<Actor> segments = cycle.GetSegments();
+            Cycle cycle_1 = (Cycle)cast.GetFirstActor("cycle_1");
+            List<Actor> segments_1 = cycle_1.GetSegments();
+            Cycle cycle_2 = (Cycle)cast.GetFirstActor("cycle_2");
+            List<Actor> segments_2 = cycle_2.GetSegments();
             Actor score = cast.GetFirstActor("score");
             List<Actor> messages = cast.GetActors("messages");
             
             videoService.ClearBuffer();
-            videoService.DrawActors(segments);
+            videoService.DrawActors(segments_1);
+            videoService.DrawActors(segments_2);
             videoService.DrawActor(score);
             videoService.DrawActors(messages);
             videoService.FlushBuffer();

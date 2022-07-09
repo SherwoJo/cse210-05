@@ -44,8 +44,10 @@ namespace cse210_05.Game.Scripting
                 direction = new Point(0, Constants.CELL_SIZE);
             }
 
-            Cycle cycle = (Cycle)cast.GetFirstActor("cycle");
-            cycle.TurnHead(direction);
+            Cycle cycle_1 = (Cycle)cast.GetFirstActor("cycle_1");
+            cycle_1.TurnHead(direction);
+            Cycle cycle_2 = (Cycle)cast.GetFirstActor("cycle_2");
+            cycle_2.TurnHead(direction);
 
         }
     }
