@@ -22,6 +22,9 @@ namespace cse210_05.Game.Scripting
             {
                 actor.MoveNext();
             }
+
+            Score score = (Score)cast.GetFirstActor("score");
+            score.AddPoints(1);
         }
     }
 }

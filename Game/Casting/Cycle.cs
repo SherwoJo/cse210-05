@@ -59,10 +59,17 @@ namespace cse210_05.Game.Casting
                 Point position = tail.GetPosition().Add(offset);
 
                 Actor segment = new Actor();
+                if (Player == 1)
+                {
+                    segment.SetColor(Constants.GREEN);
+                }
+                else
+                {
+                    segment.SetColor(Constants.BLUE);
+                }
                 segment.SetPosition(position);
                 segment.SetVelocity(velocity);
                 segment.SetText("#");
-                segment.SetColor(Constants.GREEN);
                 segments.Add(segment);
             }
         }
@@ -82,6 +89,8 @@ namespace cse210_05.Game.Casting
                 Point velocity = previous.GetVelocity();
                 trailing.SetVelocity(velocity);
             }
+
+            GrowTail(1);
         }
 
         /// <summary>
